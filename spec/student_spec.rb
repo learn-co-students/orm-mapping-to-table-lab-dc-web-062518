@@ -40,7 +40,9 @@ describe "Student" do
     it 'saves an instance of the Student class to the database' do
       Student.create_table
       josh.save
+      # binding.pry
       expect(josh.id).to eq(1)
+      # binding.pry
       expect(DB[:conn].execute("SELECT * FROM students")).to eq([[1, "Josh", "9th"]])
     end
   end
